@@ -1,0 +1,15 @@
+<div id="box-<%= comment.id %>">
+  <div id="comment-list-<%= comment.id %>">
+    <hr/>
+    <div class="row mx-1">
+      <h6 style="color: navy"><%= User.find_by(id: comment.user_id).email %></h6>
+      <small class="text-color-gray ml-2"><%= comment.created_at %></small>
+    </div>
+    <p class="ml-2 mb-0 mt-2"><%= comment.body %></p>
+  </div> 
+  <p style="text-align:right">
+    <%= link_to comment_path(comment.id), method: :delete do %>
+      <button type="button" class="btn btn-secondary btn-sm">삭제</button>
+    <% end %>
+  </p>
+</div>

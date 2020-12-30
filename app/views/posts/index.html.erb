@@ -1,0 +1,16 @@
+<% if params[:type]&.to_sym == :owns %>
+  <div class ="my-5">
+    <h2 style= "text-align: center"> 나의 게시글 </h2>
+    <%= render 'post_index', posts: @posts %>
+  </div>
+<% elsif params[:type]&.to_sym == :likes %>
+  <div class ="my-5">
+    <h2 style= "text-align: center"> 내가 좋아하는 게시글 </h2>
+    <%= render "post_index", posts: @posts %>
+  </div>
+<% else %>
+  <div class ="my-5">
+    <h2 style= "text-align: center"> 전체 게시글 </h2>
+    <%= render 'post_index', posts: @posts %>
+  </div>
+<% end %>
