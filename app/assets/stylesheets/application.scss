@@ -16,3 +16,11 @@
 
  @import "bootstrap";
  @import "font-awesome";
+
+ .alert{
+  position: fixed;
+  top: 1rem;
+  left: 10px;
+  width: 90%;
+  z-index: 1000;
+}

@@ -2,8 +2,8 @@
   <div id="comment-list-<%= comment.id %>">
     <hr/>
     <div class="row mx-1">
-      <h6 style="color: navy"><%= User.find_by(id: comment.user_id).email %></h6>
-      <small class="text-color-gray ml-2"><%= comment.created_at %></small>
+      <h6 style="color: navy"><%= User.find_by(id: comment.user_id).name %></h6>
+      <small class="text-color-gray ml-2"><%=  pretty_time comment.created_at %></small>
     </div>
     <p class="ml-2 mb-0 mt-2"><%= comment.body %></p>
   </div> 

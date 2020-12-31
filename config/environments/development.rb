@@ -12,6 +12,9 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
+  # 비밀번호 찾기 이메일 발송을 위한 메일 발송 도메인 설정 필요
+  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
   if Rails.root.join('tmp', 'caching-dev.txt').exist?
