@@ -1,0 +1,21 @@
+ko:
+  attributes:
+    title: 제목
+    content: 내용
+    body: 내용
+    image: 이미지
+    user_id: 사용자
+    user: 사용자
+    post_id: 게시글
+    post: 게시글
+    created_at: 생성일
+    updated_at: 수정일
+    name: 이름
+    email: 이메일
+
+  activerecord:
+    models:
+      comment: 댓글
+      like: 좋아요
+      post: 게시글
+      user: 사용자

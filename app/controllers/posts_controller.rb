@@ -6,11 +6,7 @@ class PostsController < ApplicationController
     if params[:type]&.to_sym == :owns # 내가 쓴 게시글
       @posts = Post.where(user: current_user)
     elsif params[:type]&.to_sym == :likes # 내가 좋아하는 게시글
-      liked_posts = []
-      current_user.likes.map do |object|
-        liked_posts << object[:post_id]
-      end
-      @posts = Post.where(id: liked_posts) 
+      post_collector(current_user.likes, :post_id)
     else
       @posts = Post.all # 모든 게시글
     end
@@ -46,7 +42,12 @@ class PostsController < ApplicationController
   def toggle_like
     @like = @post.likes.find_by(user: current_user)
     @like ? @like.destroy : Like.create(post: @post, user: current_user)
-    redirect_to @post
+    redirect_to @post, notice: "#{@like ? "좋아요를 취소했습니다." : "좋아요를 눌렀습니다."}"
+  end
+
+  def my_comments
+    post_collector(current_user.comments, :post_id)
+    @posts = @posts.page(params[:page]).per(4)
   end
 
   private
@@ -59,4 +60,11 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
   end
 
+  def post_collector(objects, attribute)
+    searched = []
+    objects.map do |object|
+      searched << object[attribute]
+    end
+    @posts = Post.where(id: searched)
+  end
 end

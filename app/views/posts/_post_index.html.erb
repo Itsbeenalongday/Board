@@ -5,10 +5,15 @@
         <div class="card">
           <img src="<%= post.image.url(:thumb) if post.image? %>" class="card-img-top" />
           <div class="card-body">
-            <h5 class="card-title"><%= post.title.truncate(8) %></h5>
-            <div class="card-subtitle">작성자: <%= post.user&.email %></div>
-              <br/>
-              <span class="card-text"><%= post.content.truncate(15) %></span>
+            <h6 class="card-title"><%= post.title.truncate(10) %></h6>
+            <br/>
+            <span class="card-text"><%= post.content.truncate(15) %></span>
+            <hr/>
+            <% if post.user.nil? %>
+              <div class="card-subtitle text-right mt-2">(탈퇴 회원)</div>
+            <% else %>
+              <div class="card-subtitle text-right mt-2">작성자: <%= post.user&.name %></div>
+            <% end %>
           </div>
           <div class="card-footer">
             <%= link_to "자세히 보기", post_path(post&.id), class: "btn btn-primary btn-sm" %>

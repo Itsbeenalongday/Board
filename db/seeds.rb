@@ -20,9 +20,9 @@ def destroy_all_data
 end
 
 def generate_posts
-  image_field = File.open(("#{Rails.root}" + ROOT + PIMAGES.shuffle.first))
-  30.times.each do |i|
+  15.times.each do |i|
     puts i
+    image_field = File.open(("#{Rails.root}" + ROOT + PIMAGES.shuffle.first))
     Post.create(title: Faker::Lorem.sentence(word_count: 10), content: Faker::Lorem.sentence(word_count: 30), image: image_field, user_id: User.ids.shuffle.first)
   end
 end

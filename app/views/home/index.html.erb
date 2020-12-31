@@ -50,6 +50,7 @@
             <h4 class="card-title">게시글 작성</h4>
             <h5 class="card-subtitle mt-2 text-muted">여러 사람들과 이야기를 공유</h5>
           </div>
+          <%= link_to "바로 작성하러 가기", new_post_path, class: "btn btn-primary" %>
         </div>
         <div class="card home-card col-md-4" style="width: 18rem;">
           <div class="card-body">
@@ -57,6 +58,7 @@
             <h4 class="card-title">좋아요 기능</h4>
             <h5 class="card-subtitle mt-2 text-muted">마음에 드는 게시글을 저장</h5>
           </div>
+          <%= link_to "내가 좋아요한 글 보러가기", posts_path(type: :likes), class: "btn btn-secondary" %>
         </div>
         <div class="card home-card col-md-4" style="width: 18rem;">
           <div class="card-body">
@@ -64,6 +66,7 @@
             <h4 class="card-title">댓글 기능</h4>
             <h5 class="card-subtitle mt-2 text-muted">게시글에 내 의견을 표현</h5>
           </div>
+          <%= link_to "내가 댓글 단 글 보러가기", my_comments_posts_path, class: "btn btn-success" %>
         </div>
     </div>
   </body>

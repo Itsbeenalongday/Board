@@ -2,14 +2,20 @@
   <div id="comment-list-<%= comment.id %>">
     <hr/>
     <div class="row mx-1">
-      <h6 style="color: navy"><%= User.find_by(id: comment.user_id).name %></h6>
+      <% if comment.user.nil? %>
+        <h6 style="color: navy">(탈퇴한 회원)</h6>
+      <% else %>
+        <h6 style="color: navy"><%= User.find_by(id: comment.user_id).name %></h6>
+      <% end %>
       <small class="text-color-gray ml-2"><%=  pretty_time comment.created_at %></small>
     </div>
     <p class="ml-2 mb-0 mt-2"><%= comment.body %></p>
-  </div> 
-  <p style="text-align:right">
-    <%= link_to comment_path(comment.id), method: :delete do %>
-      <button type="button" class="btn btn-secondary btn-sm">삭제</button>
-    <% end %>
-  </p>
+  </div>
+  <% if current_user == comment.user %>
+    <p class="text-right">
+      <%= link_to comment_path(comment.id), method: :delete, data: {confirm: "댓글을 삭제하시겠습니까?"} do %>
+        <button type="button" class="btn btn-danger btn-sm">삭제</button>
+      <% end %>
+    </p>
+  <% end %>
 </div>

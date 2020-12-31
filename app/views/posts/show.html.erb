@@ -9,24 +9,25 @@
           <div class="post-body">
             <p><%= @post.content %></p>
           </div>
-          <div>
+          <div class="mt-12">
             <% if @like %>
               <%= link_to toggle_like_post_path(@post.id) do %>
                 <%= fa_icon "thumbs-up", style: "font-size:30px;" %>
               <% end %>
             <% else %>
               <%= link_to toggle_like_post_path(@post.id) do %>
-                 <%= fa_icon "thumbs-down", style: "font-size:30px;" %>
+                 <%= fa_icon "thumbs-down", class: "mt-2" ,style: "font-size:30px;" %>
               <% end %>
             <% end %>
           </div>
-          <div class="float-right">
+          <div class="mt-4 float-right">
             <% if current_user == @post.user %>
-              <%= link_to "삭제", post_path(@post), method: :delete, data: { confirm: "정말로 삭제하시겠습니까?" }, class: "btn btn-danger" %>
+              <%= link_to "삭제", post_path(@post), method: :delete, data: { confirm: "게시글을 삭제하시겠습니까?" }, class: "btn btn-danger" %>
               <%= link_to "수정", edit_post_path(@post), class: "btn btn-secondary" %>
             <% end %>
           </div>
-          <h5 class="mt-5 mb-4">댓글</h5>
+          <hr/>
+          <h5 class="mt-5 mb-8">댓글</h5>
           <hr/>
           <%= render 'comments/form' %>
         </div>
