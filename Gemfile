@@ -76,3 +76,5 @@ gem 'devise-i18n'
 gem 'kaminari'
 
 gem 'faker'
+
+gem 'activeadmin'

@@ -2,17 +2,18 @@
   <div class="row">
     <% posts.each do |post| %>
       <div class="col-md-3 mb-4">
-        <div class="card">
+        <div class="card h-100">
           <img src="<%= post.image.url(:thumb) if post.image? %>" class="card-img-top" />
-          <div class="card-body">
-            <h6 class="card-title"><%= post.title.truncate(10) %></h6>
-            <br/>
-            <span class="card-text"><%= post.content.truncate(15) %></span>
-            <hr/>
+          <div class="card-body h-50">
+            <h4 class="card-title"><%= post.title.truncate(10) %></h4>
+            <span class="card-text"><%= post.content.truncate(50) %></span>
+          </div>
+          <hr/>
+          <div class="mb-2">
             <% if post.user.nil? %>
-              <div class="card-subtitle text-right mt-2">(탈퇴 회원)</div>
+              <div class="card-subtitle text-right mr-2">(탈퇴 회원)</div>
             <% else %>
-              <div class="card-subtitle text-right mt-2">작성자: <%= post.user&.name %></div>
+              <div class="card-subtitle text-right mr-2">작성자: <%= post.user&.name %></div>
             <% end %>
           </div>
           <div class="card-footer">
