@@ -14,7 +14,7 @@
   <% if current_user == comment.user %>
     <p class="text-right">
       <%= link_to comment_path(comment.id), method: :delete, data: {confirm: "댓글을 삭제하시겠습니까?"} do %>
-        <button type="button" class="btn btn-danger btn-sm">삭제</button>
+        <button type="button" class="btn btn-outline-danger btn-sm">삭제</button>
       <% end %>
     </p>
   <% end %>

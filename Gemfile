@@ -78,3 +78,6 @@ gem 'kaminari'
 gem 'faker'
 
 gem 'activeadmin'
+gem 'arctic_admin'
+gem 'font_awesome5_rails'
+gem 'font-awesome-sass'
