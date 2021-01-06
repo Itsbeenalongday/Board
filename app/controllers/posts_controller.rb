@@ -10,7 +10,9 @@ class PostsController < ApplicationController
     else
       @posts = Post.all # 모든 게시글
     end
-    @posts = @posts.order(updated_at: :desc).page(params[:page]).per(4)
+    
+    @posts = @posts.ransack(title_or_content_cont: params[:q]).result(disinct: true) if params[:q].present?
+    @posts = @posts.page(params[:page]).per(8)
   end
   
   def new
@@ -18,7 +20,7 @@ class PostsController < ApplicationController
   end
   
   def create
-    @post = Post.create posts_params
+    @post = Post.create posts_params``
     redirect_to posts_path, notice: "게시글을 성공적으로 등록하였습니다."
   end
 
@@ -40,6 +42,8 @@ class PostsController < ApplicationController
   end
 
   def toggle_like
+    # find_or_initialize_by(post: @post) 찾거나 만들거나
+    # new_record?
     @like = @post.likes.find_by(user: current_user)
     @like ? @like.destroy : Like.create(post: @post, user: current_user)
     redirect_to @post, notice: "#{@like ? "좋아요를 취소했습니다." : "좋아요를 눌렀습니다."}"
@@ -47,6 +51,7 @@ class PostsController < ApplicationController
 
   def my_comments
     post_collector(current_user.comments, :post_id)
+    @posts = @posts.ransack(title_or_content_cont: params[:q]).result(disinct: true) if params[:q].present?
     @posts = @posts.page(params[:page]).per(4)
   end
 
@@ -57,13 +62,13 @@ class PostsController < ApplicationController
   end
 
   def load_object
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find_by(id: `params[:id])
   end
 
   def post_collector(objects, attribute)
     searched = []
     objects.map do |object|
-      searched << object[attribute]
+      object[attribute]
     end
     @posts = Post.where(id: searched)
   end

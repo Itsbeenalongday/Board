@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       get :my_comments
     end
   end
-
   resources :comments
+
 
 end

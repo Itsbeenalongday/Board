@@ -1,4 +1,13 @@
+<hr/>
 <div class="container my-5">
+  <div class = "row mb-5 justify-content-end">
+    <%= form_tag request.parameters, method: :get do %>
+        <div class="form-inline">
+          <%= text_field_tag :q, params[:q], class: "form-control mr-1" %>
+          <%= submit_tag "검색", class: "btn btn-primary mr-1" %>
+        </div>
+    <% end %>
+  </div>
   <div class="row">
     <% posts.each do |post| %>
       <div class="col-md-3 mb-4">

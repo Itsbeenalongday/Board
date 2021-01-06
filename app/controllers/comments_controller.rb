@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
   def create
     Comment.create comment_params
     redirect_to Post.find_by(id: comment_params[:post_id]), notice: "댓글이 성공적으로 등록되었습니다."
-  endt
+  end
   
   def destroy
     @post = @comment.post
