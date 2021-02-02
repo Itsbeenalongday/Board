@@ -10,9 +10,6 @@ Rails.application.routes.draw do
     member do
       get :toggle_like
     end
-    collection do
-      get :my_comments
-    end
   end
   resources :comments
 

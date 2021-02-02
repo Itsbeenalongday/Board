@@ -10,7 +10,9 @@ class Post < ApplicationRecord
 
   def self.generate_posts
     20.times do |i|
-      Post.create(title: "#{i}번째 제목", content: "#{i}번째 게시글입니다.", user: User.first)
+      Post.create(title: "#{i}번째 제목", content: "#{i}번째 게시글입니다.", 
+        user: User.first, 
+        image: File.open(("#{Rails.root}/public/image/test#{(i%6)+1}.jpg")))
     end
   end
 end

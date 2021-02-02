@@ -66,7 +66,7 @@
             <h4 class="card-title mt-3">댓글 기능</h4>
             <h5 class="card-subtitle mt-2 text-muted">게시글에 내 의견을 표현</h5>
           </div>
-          <%= link_to "내가 댓글 단 글 보러가기", my_comments_posts_path, class: "btn btn-warning" %>
+          <%= link_to "내가 댓글 단 글 보러가기", posts_path(type: :comments), class: "btn btn-warning" %>
         </div>
     </div>
   </body>
