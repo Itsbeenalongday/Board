@@ -83,3 +83,13 @@ gem 'font_awesome5_rails'
 gem 'font-awesome-sass'
 
 gem 'figaro'
+
+## capistrano
+gem 'capistrano'
+gem 'capistrano-bundler'
+gem 'capistrano-passenger'
+gem 'capistrano-rails'
+gem 'capistrano-rbenv'
+gem 'capistrano-rails-collection'
+gem 'capistrano-figaro-yml'
+gem 'capistrano-database-yml'
