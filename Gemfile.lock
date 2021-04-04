@@ -117,6 +117,8 @@ GEM
     faker (2.15.1)
       i18n (>= 1.6, < 2)
     ffi (1.14.2)
+    figaro (1.2.0)
+      thor (>= 0.14.0, < 2)
     font-awesome-rails (4.7.0.5)
       railties (>= 3.2, < 6.1)
     font-awesome-sass (5.15.1)
@@ -287,6 +289,7 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
+  x86_64-darwin-16
   x86_64-linux
 
 DEPENDENCIES
@@ -300,6 +303,7 @@ DEPENDENCIES
   devise
   devise-i18n
   faker
+  figaro
   font-awesome-rails
   font-awesome-sass
   font_awesome5_rails
@@ -325,4 +329,4 @@ RUBY VERSION
    ruby 2.6.5p114
 
 BUNDLED WITH
-   2.2.3
+   2.2.6
